@@ -1,0 +1,103 @@
+﻿
+Version
+=======
+> solidity-coverage: v0.8.17
+
+Instrumenting for coverage...
+=============================
+
+> BettingMarket.sol
+> SportsOracle.sol
+
+Compilation:
+============
+
+Nothing to compile
+
+Network Info
+============
+> HardhatEVM: v2.28.6
+> network:    hardhat
+
+
+
+  Betting Oracle System
+    SportsOracle
+      Γ£ö Should set the right oracleAddress
+      Γ£ö Should submit player data
+      Γ£ö Should revert if not oracle (93ms)
+      Γ£ö Should finalize match
+      Γ£ö Should revert submit data if finalized
+    BettingMarket
+      Γ£ö Should set the correct oracle address
+      Γ£ö Should allow placing bets (49ms)
+      Γ£ö Should revert placing bet if match finalized (47ms)
+      1) Should settle bet and pay winner
+      Γ£ö Should not pay if bet lost
+      2) Should revert settle if already settled
+      Γ£ö Should revert settle if match not finalized
+
+
+  10 passing (1s)
+  2 failing
+
+  1) Betting Oracle System
+       BettingMarket
+         Should settle bet and pay winner:
+     Error: Transaction reverted: function call failed to execute
+    at BettingMarket.settleBet (contracts/BettingMarket.sol:99)
+    at EdrProviderWrapper.request (node_modules\hardhat\src\internal\hardhat-network\provider\provider.ts:453:41)
+    at HardhatEthersSigner.sendTransaction (node_modules\@nomicfoundation\hardhat-ethers\src\signers.ts:185:18)
+    at send (node_modules\ethers\src.ts\contract\contract.ts:313:20)
+    at Proxy.settleBet (node_modules\ethers\src.ts\contract\contract.ts:352:16)
+    at Context.<anonymous> (test\Betting.test.js:74:18)
+  
+
+  2) Betting Oracle System
+       BettingMarket
+         Should revert settle if already settled:
+     Error: Transaction reverted: function call failed to execute
+    at BettingMarket.settleBet (contracts/BettingMarket.sol:99)
+    at EdrProviderWrapper.request (node_modules\hardhat\src\internal\hardhat-network\provider\provider.ts:453:41)
+    at HardhatEthersSigner.sendTransaction (node_modules\@nomicfoundation\hardhat-ethers\src\signers.ts:185:18)
+    at send (node_modules\ethers\src.ts\contract\contract.ts:313:20)
+    at Proxy.settleBet (node_modules\ethers\src.ts\contract\contract.ts:352:16)
+    at Context.<anonymous> (test\Betting.test.js:101:7)
+  
+
+
+
+--------------------|----------|----------|----------|----------|----------------|
+File                |  % Stmts | % Branch |  % Funcs |  % Lines |Uncovered Lines |
+--------------------|----------|----------|----------|----------|----------------|
+ contracts\         |      100 |       85 |      100 |      100 |                |
+  BettingMarket.sol |      100 |       75 |      100 |      100 |                |
+  SportsOracle.sol  |      100 |      100 |      100 |      100 |                |
+--------------------|----------|----------|----------|----------|----------------|
+All files           |      100 |       85 |      100 |      100 |                |
+--------------------|----------|----------|----------|----------|----------------|
+
+> Istanbul reports written to ./coverage/ and ./coverage.json
+node.exe : [31m[1mError 
+in plugin solidity-coverage
+:[22m[39m Γ¥î 2 test(s) 
+failed under coverage.
+At line:1 char:1
++ & "C:\Program 
+Files\nodejs/node.exe" 
+"C:\Program 
+Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~
+    + CategoryInfo         
+     : NotSpecified: ([3  
+  1m[1mError ...under c   
+ overage.:String) [], R    
+emoteException
+    + FullyQualifiedErrorI 
+   d : NativeCommandError
+ 
+
+For more info run Hardhat 
+with --show-stack-traces
